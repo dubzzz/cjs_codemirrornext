@@ -1,0 +1,27 @@
+{
+  "name": "cjs_codemirrornext",
+  "version": "0.14.0",
+  "description": "CommonJS rewrapping of @codemirror/next",
+  "main": "dist/index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "@codemirror/next": "^0.14.0",
+    "webpack": "^5.2.0",
+    "webpack-cli": "^4.1.0"
+  },
+  "scripts": {
+    "build-src": "node buildSources",
+    "build-cjs": "webpack",
+    "test": "node test/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dubzzz/cjs_codemirrornext.git"
+  },
+  "author": "Nicolas DUBIEN <github@dubien.org>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dubzzz/cjs_codemirrornext/issues"
+  },
+  "homepage": "https://github.com/dubzzz/cjs_codemirrornext#readme"
+}
