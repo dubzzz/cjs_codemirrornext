@@ -10,8 +10,10 @@
     "webpack-cli": "^4.1.0"
   },
   "scripts": {
-    "build-src": "node buildSources",
+    "build-src": "node buildSources.js",
     "build-cjs": "webpack",
+    "build-typings": "node copyTypings.js",
+    "build": "npm run build-src && npm run build-cjs && npm run build-typings",
     "test": "node test/index.js"
   },
   "repository": {
