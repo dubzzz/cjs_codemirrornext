@@ -25,5 +25,8 @@
   "bugs": {
     "url": "https://github.com/dubzzz/cjs_codemirrornext/issues"
   },
-  "homepage": "https://github.com/dubzzz/cjs_codemirrornext#readme"
+  "homepage": "https://github.com/dubzzz/cjs_codemirrornext#readme",
+  "files": [
+    "dist"
+  ]
 }
