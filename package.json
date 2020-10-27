@@ -1,6 +1,6 @@
 {
   "name": "cjs_codemirrornext",
-  "version": "0.14.0-rc4",
+  "version": "0.14.0-rc5",
   "description": "CommonJS rewrapping of @codemirror/next",
   "main": "dist/index.js",
   "dependencies": {},
@@ -14,7 +14,7 @@
     "build-cjs": "webpack",
     "build-typings": "node copyTypings.js",
     "build": "npm run build-src && npm run build-cjs && npm run build-typings",
-    "test": "node test/index.js"
+    "test": "node test.js"
   },
   "repository": {
     "type": "git",
@@ -27,6 +27,40 @@
   },
   "homepage": "https://github.com/dubzzz/cjs_codemirrornext#readme",
   "files": [
-    "dist"
+    "state",
+    "text",
+    "view",
+    "commands",
+    "history",
+    "collab",
+    "gutter",
+    "rangeset",
+    "syntax",
+    "fold",
+    "matchbrackets",
+    "closebrackets",
+    "panel",
+    "tooltip",
+    "search",
+    "goto-line",
+    "lint",
+    "highlight",
+    "stream-syntax",
+    "autocomplete",
+    "comment",
+    "rectangular-selection",
+    "highlight-selection",
+    "basic-setup",
+    "lang-javascript",
+    "lang-java",
+    "lang-json",
+    "lang-cpp",
+    "lang-python",
+    "lang-css",
+    "lang-html",
+    "lang-sql",
+    "lang-rust",
+    "lang-xml",
+    "theme-one-dark"
   ]
 }

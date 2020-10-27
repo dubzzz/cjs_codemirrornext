@@ -2,33 +2,43 @@ const fs = require("fs");
 const path = require("path");
 const { directories } = require("./conf");
 
-const distDirectoryPath = path.join(__dirname, "dist");
 for (const directoryName of directories) {
   console.log(
     `Copying typings into dist/ for "@codemirror/next/${directoryName}"`
   );
-  const directoryPath = path.join(distDirectoryPath, directoryName);
-  const nodeModulesPath = path.join(
+  const packageNewPath = path.join(__dirname, directoryName);
+  const packageOldPath = path.join(
     __dirname,
     "node_modules",
     "@codemirror",
     "next",
-    directoryName,
-    "dist"
+    directoryName
   );
 
-  const files = fs.readdirSync(nodeModulesPath);
+  fs.writeFileSync(
+    path.join(packageNewPath, "package.json"),
+    String(fs.readFileSync(path.join(packageOldPath, "package.json"))).replace(
+      '"type": "module"',
+      '"type": "commonjs"'
+    )
+  );
+
+  const packageNewTypingsPath = path.join(packageNewPath, "src");
+  const packageOldTypingsPath = path.join(packageOldPath, "src");
+  const files = fs.readdirSync(packageOldTypingsPath);
   files.forEach((fileName) => {
     if (!fileName.endsWith(".d.ts")) {
       return;
     }
     console.log(`> ${fileName}`);
+    if (!fs.existsSync(packageNewTypingsPath)) {
+      fs.mkdirSync(packageNewTypingsPath);
+    }
     fs.writeFileSync(
-      path.join(directoryPath, fileName),
-      String(fs.readFileSync(path.join(nodeModulesPath, fileName))).replace(
-        /from "@codemirror\/next/g,
-        'from "..'
-      )
+      path.join(packageNewTypingsPath, fileName),
+      String(
+        fs.readFileSync(path.join(packageOldTypingsPath, fileName))
+      ).replace(/from "@codemirror\/next/g, 'from "..')
     );
   });
 }
