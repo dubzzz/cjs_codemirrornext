@@ -38,7 +38,7 @@ for (const directoryName of directories) {
       path.join(packageNewTypingsPath, fileName),
       String(
         fs.readFileSync(path.join(packageOldTypingsPath, fileName))
-      ).replace(/from "@codemirror\/next/g, 'from "..')
+      ).replace(/from "@codemirror\/next/g, 'from "../..')
     );
   });
 }
