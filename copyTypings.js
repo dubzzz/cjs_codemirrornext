@@ -25,7 +25,10 @@ for (const directoryName of directories) {
     console.log(`> ${fileName}`);
     fs.writeFileSync(
       path.join(directoryPath, fileName),
-      fs.readFileSync(path.join(nodeModulesPath, fileName))
+      String(fs.readFileSync(path.join(nodeModulesPath, fileName))).replace(
+        /from "@codemirror\/next/g,
+        'from "cjs_codemirrornext'
+      )
     );
   });
 }
