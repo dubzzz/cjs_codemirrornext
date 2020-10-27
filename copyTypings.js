@@ -27,7 +27,7 @@ for (const directoryName of directories) {
       path.join(directoryPath, fileName),
       String(fs.readFileSync(path.join(nodeModulesPath, fileName))).replace(
         /from "@codemirror\/next/g,
-        'from "cjs_codemirrornext'
+        'from "..'
       )
     );
   });

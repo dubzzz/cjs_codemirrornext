@@ -1,6 +1,6 @@
 {
   "name": "cjs_codemirrornext",
-  "version": "0.14.0-rc3",
+  "version": "0.14.0-rc4",
   "description": "CommonJS rewrapping of @codemirror/next",
   "main": "dist/index.js",
   "dependencies": {},
