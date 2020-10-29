@@ -6,7 +6,7 @@ for (const directoryName of directories) {
   console.log(
     `Copying typings into dist/ for "@codemirror/next/${directoryName}"`
   );
-  const packageNewPath = path.join(__dirname, directoryName);
+  const packageNewPath = path.join(__dirname, "built", directoryName);
   const packageOldPath = path.join(
     __dirname,
     "node_modules",
