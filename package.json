@@ -3,18 +3,18 @@
   "version": "0.14.0-rc6",
   "description": "CommonJS rewrapping of @codemirror/next",
   "main": "dist/index.js",
-  "dependencies": {},
   "devDependencies": {
-    "@codemirror/next": "0.14.0",
-    "webpack": "^5.2.0",
-    "webpack-cli": "^4.1.0"
+    "@babel/cli": "^7.12.1",
+    "@babel/core": "^7.0.0-beta.56",
+    "@babel/preset-env": "^7.12.1",
+    "@codemirror/next": "0.14.0"
   },
   "scripts": {
-    "build-src": "node buildSources.js",
-    "build-cjs": "webpack",
     "build-typings": "node copyTypings.js",
-    "build": "npm run build-src && npm run build-cjs && npm run build-typings",
-    "test": "node test.js"
+    "build": "npm run build-babel && npm run build-convert-package-name && npm run build-typings",
+    "test": "node test.js",
+    "build-babel": "babel node_modules/@codemirror/next -d built",
+    "build-convert-package-name": "bash convert-package-name.sh"
   },
   "repository": {
     "type": "git",
@@ -62,5 +62,8 @@
     "lang-rust",
     "lang-xml",
     "theme-one-dark"
-  ]
+  ],
+  "dependencies": {
+    "w3c-keyname": "^2.2.4"
+  }
 }
